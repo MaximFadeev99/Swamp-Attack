@@ -25,8 +25,10 @@ public class PlayerBlockState : State
 
     public override void Enter()
     {
+        float durationModifier = 2f;
+        
         base.Enter();
-        _clipDuration = Animator.GetCurrentAnimatorClipInfo(0).Length;
+        _clipDuration = Animator.GetCurrentAnimatorClipInfo(0).Length * durationModifier;
         _player.IgnoreDamage();
     }
 }

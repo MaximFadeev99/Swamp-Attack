@@ -13,6 +13,6 @@ public class PlayerDieTransition : Transition
 
     public override bool IsConditionMet()
     {
-        return _player.IsDead? true: false;
+        return _player.IsDead;
     }
 }

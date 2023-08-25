@@ -9,7 +9,7 @@ public class RunTransition : Transition
     private float _minProximity = 0.65f;
     private float _proximityModifier;
 
-    public bool IsNearPlayer { get; private set; } = false;
+    public bool IsNearPlayer = false;    
 
     private void Awake()
     {
@@ -22,8 +22,16 @@ public class RunTransition : Transition
     }
 
     public override bool IsConditionMet()
-    {      
-        IsNearPlayer = transform.position.x < _player.transform.position.x * _proximityModifier ? false : true;
-        return !IsNearPlayer;
+    {
+        if (transform.position.x < _player.transform.position.x * _proximityModifier && _player.IsDead == false)
+        {
+            IsNearPlayer = false;
+            return true;
+        }
+        else
+        {
+            IsNearPlayer = true;
+            return false;
+        }
     }
 }

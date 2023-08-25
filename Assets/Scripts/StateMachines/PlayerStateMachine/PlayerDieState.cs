@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerDieState : State
 {
     private float _clipDuration;
+
+    public Action Died;
 
     protected override void Awake()
     {
@@ -19,12 +22,15 @@ public class PlayerDieState : State
         {
             Exit();
             gameObject.SetActive(false);
+            Died?.Invoke();
         }
     }
 
     public override void Enter()
     {
+        float durationModifier = 2f;
+
         base.Enter();
-        _clipDuration = Animator.GetCurrentAnimatorClipInfo(0).Length;
+        _clipDuration = Animator.GetCurrentAnimatorClipInfo(0).Length * durationModifier;
     }
 }

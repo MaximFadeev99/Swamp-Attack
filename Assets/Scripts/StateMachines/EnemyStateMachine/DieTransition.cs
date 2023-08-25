@@ -5,7 +5,7 @@ using UnityEngine;
 public class DieTransition : Transition
 {
     private Enemy _enemy;
-    private bool _isDead = false;
+    private bool _isDead;
     
     private void Awake()
     {
@@ -15,11 +15,13 @@ public class DieTransition : Transition
     private void OnEnable()
     {
         _enemy.Died += HasDied;
+        _isDead = false;
     }
 
     private void OnDisable()
     {
         _enemy.Died -= HasDied;
+        _isDead = false;
     }
 
     public override bool IsConditionMet()
@@ -27,7 +29,7 @@ public class DieTransition : Transition
         return _isDead;
     }
 
-    private void HasDied() 
+    private void HasDied(Enemy enemy) 
     {
         _isDead = true;
     }

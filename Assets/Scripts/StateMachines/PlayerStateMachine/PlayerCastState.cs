@@ -6,10 +6,16 @@ public class PlayerCastState : State
     [SerializeField] private Fireball _fireball;
     
     private float _clipDuration;
+    private Vector2 _instantiantionPosition;
 
     protected override void Awake()
     {
+        float xOffset = 0.3f;
+        float yOffset = 0.3f;
+       
         base.Awake();
+        _instantiantionPosition = new Vector2
+            (transform.position.x - xOffset, transform.position.y - yOffset);
         AnimationCode = AnimatorParameters.PlayerCast;
         HasExitTime = true;
     }
@@ -31,14 +37,9 @@ public class PlayerCastState : State
 
     private async void DelayAndInstantiate() 
     {
-        int delayTime = 500;
-        float xOffset = 0.3f;
-        float yOffset = 0.7f;
+        int timeDelay = 700;
 
-        await Task.Delay(delayTime);
-        Instantiate
-            (_fireball, 
-            new Vector3 (transform.position.x - xOffset, transform.position.y - yOffset, 0), 
-            transform.rotation);
+        await Task.Delay(timeDelay);
+        Instantiate (_fireball, _instantiantionPosition, transform.rotation);
     }
 }

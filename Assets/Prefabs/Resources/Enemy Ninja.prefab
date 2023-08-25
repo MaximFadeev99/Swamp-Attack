@@ -211,12 +211,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   States:
+  - {fileID: 6590192884197442081}
   - {fileID: 5720414210072621211}
   - {fileID: 9020380770678404321}
   - {fileID: 6631851853157470199}
   - {fileID: 6769200137625097887}
   - {fileID: 6027794443740738901}
-  - {fileID: 6590192884197442081}
   - {fileID: 6728197207945577843}
   _defaultState: {fileID: 6728197207945577843}
 --- !u!114 &6728197207945577843
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7555146542ee7f4ab1a39707b7f44bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsNearPlayer: 0
 --- !u!114 &6027794443740738901
 MonoBehaviour:
   m_ObjectHideFlags: 0

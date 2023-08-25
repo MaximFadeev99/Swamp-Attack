@@ -12,21 +12,12 @@ public class HurtWithKatanaState : HurtState
     public override void Enter()
     {
         float durationModifier = 0.5f;
+        float pushStrength = -4f;
 
         enabled = true;
         IsBeingExecuted = true;
         Animator.Play(AnimationCode);
         ClipDuration = Animator.GetCurrentAnimatorClipInfo(0).Length * durationModifier;
-        WaitAndPush();              
-    }
-
-    private async void WaitAndPush() 
-    {
-        int delayTime = 300;
-        float pushStrength = -8f;
-
-        await Task.Delay(delayTime);
-        ClipDuration += delayTime / 1000;
-        Rigidbody.velocity = new Vector2(pushStrength, 0);
+        Rigidbody.velocity = new Vector2(pushStrength, 0);              
     }
 }

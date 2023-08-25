@@ -8,9 +8,9 @@ public class Fireball : MonoBehaviour
     protected Rigidbody2D RigidBody;
     protected Animator Animator;
     protected bool IsTargetReached = false;
+    protected float HitCount = 1;
 
     private float _initialXPosition;
-    private float _hitCount = 1;
 
     protected virtual void Awake()
     {
@@ -28,7 +28,7 @@ public class Fireball : MonoBehaviour
         float flyDistance = 8f;
 
         if (IsTargetReached == false) 
-            RigidBody.velocity =new Vector2 (-FlySpeed,0);
+            RigidBody.velocity = new Vector2 (-FlySpeed,0);
 
         if (Mathf.Abs(transform.position.x - _initialXPosition) >= flyDistance)
             Destroy(gameObject);
@@ -36,12 +36,12 @@ public class Fireball : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_hitCount < 1)
+        if (HitCount < 1)
             return;
 
         if (collision.gameObject.TryGetComponent(out Enemy enemy)) 
         {
-            _hitCount--;
+            HitCount--;
             enemy.TakeDamage(Damage);
             Explode();                    
         }        

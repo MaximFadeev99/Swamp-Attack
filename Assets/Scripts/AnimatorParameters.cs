@@ -17,4 +17,5 @@ public class AnimatorParameters : MonoBehaviour
     public static readonly int PlayerDie = Animator.StringToHash(nameof(PlayerDie));
     public static readonly int PlayerIdle = Animator.StringToHash(nameof(PlayerIdle));
     public static readonly int PlayerSwordAttack = Animator.StringToHash(nameof(PlayerSwordAttack));
+    public static readonly int PlayerBowAttack = Animator.StringToHash(nameof(PlayerBowAttack));
 }
