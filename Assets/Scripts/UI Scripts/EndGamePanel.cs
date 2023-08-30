@@ -11,6 +11,7 @@ public class EndGamePanel : MonoBehaviour
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+    [SerializeField] private ParticleSystem _victoryFirework;
 
     private PlayerDieState _dieState;
 
@@ -48,6 +49,7 @@ public class EndGamePanel : MonoBehaviour
         string victoryCaption = "Victorious!";
 
         ShowPanel(victoryCaption);
+        _victoryFirework.Play();
     }
 
     private void ShowPanel(string caption) 

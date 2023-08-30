@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public bool IsDead { get; private set; } = false;
     public float CurrentHealth { get; private set; }
-    public float Coins { get; private set; } = 0;
+    public float Coins { get; private set; } = 200;
     public Weapon SelectedWeapon { get; private set; }
     public Sword Sword { get; private set; }
     public Bow Bow { get; private set; }

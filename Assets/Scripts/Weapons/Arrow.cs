@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 public class Arrow : Weapon
 {
+    [SerializeField] private GameObject _hitSparks;
+    
     private int _hitCount = 1;
     private bool _isTargetReached = false;
     private Rigidbody2D _rigidbody;
@@ -46,6 +48,7 @@ public class Arrow : Weapon
         {
             _isTargetReached = true;
             _hitCount--;
+            Instantiate(_hitSparks, collision.gameObject.transform.position, transform.rotation);
             enemy.TakeDamage(BasicDamage);
             Destroy(gameObject);
         }

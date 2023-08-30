@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 4b71c1b4c1ba1804ca54a4931dc0844d, type: 3}
+  IsBought: 1
+  _hitSparks: {fileID: 6192574987276098615, guid: a56f5ba462753fa48b47116427d91a76, type: 3}
 --- !u!61 &199598426876016378
 BoxCollider2D:
   m_ObjectHideFlags: 0
