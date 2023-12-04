@@ -10,14 +10,14 @@ public class ContentFiller : MonoBehaviour
     {      
         foreach (Weapon weapon in _weapons) 
         {
-            InstantiateAndRender(weapon);          
+            Instantiate(weapon);          
 
             if (weapon.TryGetComponent(out Bow bow)) 
-                InstantiateAndRender(bow.Arrow);
+                Instantiate(bow.Arrow);
         }
     }
 
-    private void InstantiateAndRender(Weapon weapon) 
+    private void Instantiate(Weapon weapon) 
     {
         ProductCard productCard;
 
